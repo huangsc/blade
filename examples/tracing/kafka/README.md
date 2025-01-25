@@ -1,6 +1,6 @@
 # Kafka Tracing 示例
 
-这个示例展示了如何在 Kafka 消息队列中使用 Knife 框架的 Tracing 中间件来实现分布式追踪。
+这个示例展示了如何在 Kafka 消息队列中使用 Blade 框架的 Tracing 中间件来实现分布式追踪。
 
 ## 功能特点
 

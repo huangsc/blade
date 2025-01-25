@@ -1,6 +1,6 @@
 # Redis 追踪示例
 
-本示例演示了如何使用 Knife 框架的 Tracing 中间件对 Redis 操作进行分布式追踪。
+本示例演示了如何使用 Blade 框架的 Tracing 中间件对 Redis 操作进行分布式追踪。
 
 ## 功能特性
 
