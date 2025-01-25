@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "github.com/huangsc/blade/examples/auth/grpc/proto;pb";
+
+// UserService 用户服务
+service UserService {
+  // GetUser 获取用户信息
+  rpc GetUser(GetUserRequest) returns (User) {}
+  // ListUsers 获取用户列表
+  rpc ListUsers(ListUsersRequest) returns (stream User) {}
+  // UpdateUser 更新用户信息
+  rpc UpdateUser(UpdateUserRequest) returns (User) {}
+  // DeleteUser 删除用户
+  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
+}
+
+// User 用户信息
+message User {
+  string id = 1;
+  string username = 2;
+  string email = 3;
+  string role = 4;
+  int64 created_at = 5;
+  int64 updated_at = 6;
+}
+
+// GetUserRequest 获取用户请求
+message GetUserRequest {
+  string id = 1;
+}
+
+// ListUsersRequest 获取用户列表请求
+message ListUsersRequest {
+  int32 page_size = 1;
+  int32 page_num = 2;
+}
+
+// UpdateUserRequest 更新用户请求
+message UpdateUserRequest {
+  string id = 1;
+  string email = 2;
+}
+
+// DeleteUserRequest 删除用户请求
+message DeleteUserRequest {
+  string id = 1;
+}
+
+// DeleteUserResponse 删除用户响应
+message DeleteUserResponse {
+  string message = 1;
+} 

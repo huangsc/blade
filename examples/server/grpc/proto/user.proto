@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/huangsc/blade/examples/server/grpc/proto;user";
+
+// 用户服务
+service UserService {
+  // 创建用户
+  rpc CreateUser (CreateUserRequest) returns (User) {}
+  // 获取用户
+  rpc GetUser (GetUserRequest) returns (User) {}
+  // 更新用户
+  rpc UpdateUser (UpdateUserRequest) returns (User) {}
+  // 删除用户
+  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse) {}
+}
+
+// 用户信息
+message User {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  int64 create_at = 4;
+  int64 update_at = 5;
+}
+
+// 创建用户请求
+message CreateUserRequest {
+  string name = 1;
+  string email = 2;
+}
+
+// 获取用户请求
+message GetUserRequest {
+  string id = 1;
+}
+
+// 更新用户请求
+message UpdateUserRequest {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+// 删除用户请求
+message DeleteUserRequest {
+  string id = 1;
+}
+
+// 删除用户响应
+message DeleteUserResponse {
+  string message = 1;
+  string id = 2;
+} 
